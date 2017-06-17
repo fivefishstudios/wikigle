@@ -4,14 +4,21 @@
   width: 100%;
 
   #identity{
+    padding: 20px;
+    background-color: #FAFAFA;
+    position: fixed;
+    top: 0px;
+    z-index: 200;
+    width:100%;
     #wikigle-logo{
-      height: 60px;
-      margin: 30px 0px -20px 50px;
+      height: 42px;
       width: 150px;
-      transition: 1s all ease;
+      margin-left: 0px;
+      transition: 0.5s all ease;
     }
     hr{
-      margin-bottom: -30px;
+      margin-bottom: -21px;
+      margin-top: 20px;
     }
   }
 
@@ -19,7 +26,7 @@
     width: 50%;
     min-width: 300px;
     max-width: 700px;
-    margin-top: 10%;
+    margin-top: 15%;
     margin-left: auto;
     margin-right: auto;
   }
@@ -54,6 +61,7 @@
       border-color: #F6F6F6;
       margin-left: 10px;
       margin-right: 10px;
+      margin-bottom: 1em;
       color: #888;
       font-weight: bold;
       &:hover{
@@ -64,10 +72,37 @@
 
 
   #results{
-    margin-top: 20px;
+    margin-top: 60px;
     padding: 50px;
     font-size: 1.1em;
     color: #555;
+    ul{
+      margin:0px;
+      padding:0px;
+      list-style-type: none;
+      list-style: none;
+      li{
+        margin-bottom: 1.5em;
+      }
+    }
+    p{
+      margin:0px;
+      padding:0px;
+      color: #666;
+    }
+    h1, h2 {
+      margin:0px;
+      padding:0px;
+      font-size: 1.3em;
+    }
+    h2 a {
+      color: #1744e8;
+      font-weight: bold;
+    }
+    a{
+      color: green;
+      font-size: 0.85em;
+    }
   }
 
 }
