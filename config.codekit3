@@ -85,7 +85,11 @@
 	"displayValue": "wikigle",
 	"displayValueWasSetByUser": 0,
 	"iconImageName": "meme-doge",
+<<<<<<< HEAD
 	"lastBuiltDate": 519453068
+=======
+	"lastBuiltDate": 519453237
+>>>>>>> jun17-work
 	},
 "projectSettings": {
 	"abortBuildOnError": 1,
@@ -2040,7 +2044,11 @@
 			}
 		],
 	"previewPathAddition": "\/build\/index.html",
+<<<<<<< HEAD
 	"skippedFoldersString": "log, _logs, logs, _cache, cache, \/storage\/framework\/sessions, node_modules, assets",
+=======
+	"skippedFoldersString": "log, _logs, logs, _cache, cache, \/storage\/framework\/sessions, node_modules, assets, build\n",
+>>>>>>> jun17-work
 	"sourceFolderName": "source",
 	"uglifyDefinesString": "",
 	"uglifyFlags2": {
