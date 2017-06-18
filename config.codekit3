@@ -9,6 +9,12 @@
 	],
 "creatorBuild": "25813",
 "files": {
+	"\/.surgeignore": {
+		"ft": 8192,
+		"oA": 2,
+		"oAP": "\/build\/.surgeignore",
+		"oF": 0
+		},
 	"\/.vscode\/settings.json": {
 		"ft": 524288,
 		"oA": 1,
@@ -63,10 +69,10 @@
 		"oT": 1,
 		"q": 80
 		},
-	"\/index.htm": {
+	"\/index.html": {
 		"ft": 8192,
 		"oA": 2,
-		"oAP": "\/build\/index.htm",
+		"oAP": "\/build\/index.html",
 		"oF": 0
 		}
 	},
@@ -79,7 +85,7 @@
 	"displayValue": "wikigle",
 	"displayValueWasSetByUser": 0,
 	"iconImageName": "meme-doge",
-	"lastBuiltDate": 519375680
+	"lastBuiltDate": 519452329
 	},
 "projectSettings": {
 	"abortBuildOnError": 1,
@@ -2016,21 +2022,21 @@
 	"languageDefaultsUserDefined": [
 		{
 			"autoOutputAction": 0,
-			"autoOutputPathFilenamePattern": "*.asp",
-			"autoOutputPathRelativePath": "",
-			"autoOutputPathReplace1": "",
-			"autoOutputPathReplace2": "",
-			"autoOutputPathStyle": 0,
-			"fileExtension": "asp"
-			},
-		{
-			"autoOutputAction": 0,
 			"autoOutputPathFilenamePattern": "*.cshtml",
 			"autoOutputPathRelativePath": "",
 			"autoOutputPathReplace1": "",
 			"autoOutputPathReplace2": "",
 			"autoOutputPathStyle": 0,
 			"fileExtension": "cshtml"
+			},
+		{
+			"autoOutputAction": 0,
+			"autoOutputPathFilenamePattern": "*.asp",
+			"autoOutputPathRelativePath": "",
+			"autoOutputPathReplace1": "",
+			"autoOutputPathReplace2": "",
+			"autoOutputPathStyle": 0,
+			"fileExtension": "asp"
 			}
 		],
 	"previewPathAddition": "\/build\/index.htm",

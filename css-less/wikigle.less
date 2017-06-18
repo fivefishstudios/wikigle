@@ -10,6 +10,8 @@
     top: 0px;
     z-index: 200;
     width:100%;
+    transition: 0.5s all ease;
+    opacity: 0;
     #wikigle-logo{
       height: 42px;
       width: 150px;
@@ -29,6 +31,8 @@
     margin-top: 15%;
     margin-left: auto;
     margin-right: auto;
+    opacity: 1;
+    transition: 0.5s all ease;
   }
 
   #wikigle-logo{
@@ -76,13 +80,16 @@
     padding: 50px;
     font-size: 1.1em;
     color: #555;
+    opacity: 0;
     ul{
       margin:0px;
       padding:0px;
       list-style-type: none;
       list-style: none;
       li{
-        margin-bottom: 1.5em;
+        margin-bottom: 2em;
+        clear:left;
+        padding-right: 30%;
       }
     }
     p{
@@ -103,6 +110,26 @@
       color: green;
       font-size: 0.85em;
     }
+    #resultsquery{
+      margin-bottom: 30px;
+      width: 50%;
+      min-width: 300px;
+    }
+    .wikithumbnail{
+      float: left;
+      margin-right: 10px;
+      margin-bottom: 20px;
+    }
+  }
+
+  .hide{
+    opacity: 0 !important;
+    transition: 0.5s all ease;
+  }
+
+  .show{
+    opacity: 1 !important;
+    transition: 0.5s all ease;
   }
 
 }
