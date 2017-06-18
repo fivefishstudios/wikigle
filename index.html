@@ -21,51 +21,42 @@
   
     <div id="wikigle">
 
-      <div id="identity" style="display:none">
-        <div id="wikigle-logo"><img src="/images/wikigle-logo.png" class="img img-responsive"></div>
+      <div id="identity">
+        <div id="wikigle-logo"><a href="./index.html"><img src="/images/wikigle-logo.png" class="img img-responsive"></a></div>
         <hr>
       </div>
 
-      <div id="form" style="display:block">
+      <div id="form">
           <div id="wikigle-logo"><img src="/images/wikigle-logo.png" class="img img-responsive"></div>
           <form id="submitform">
             <input id="wikiKeyword" v-model="wikiKeyword" type="text" placeholder="What are you looking for?" class="form">
           </form>
           <div id="wikigle-buttons">
             <a href="#" class="btn btn-default" id="wikiSearch" >Wiki Search</a>
-            <a href="https://en.wikipedia.org/wiki/Special:Random" class="btn btn-default">Some Random Sh*t</a>
+            <a href="https://en.wikipedia.org/wiki/Special:Random" class="btn btn-default" target="result">Some Random Sh*t</a>
           </div>
       </div>
 
       <div id="results">
-          <!--<p>The user search for: <h1>{{ wikiKeyword }}</h1></p>-->
-
+          <div id="resultsquery">
+            <form id="resultssubmitform">
+              <input id="resultswikiKeyword" v-model="wikiKeyword" type="text" placeholder="What are you looking for?" class="form">
+            </form>
+          </div>
           <ul>
-            <li>
+            <!--<li>
               <h2><a href="#">Digikey Electronics</a></h2>
               <p><a href="#">http://www.somewhere.com/blahblahblah/digikey/</a></p>
               <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. </p>
-            </li>
-            <li>
-              <h2><a href="#">Mouser Electronics</a></h2>
-              <p><a href="#">http://www.somewhere.com/blahblahblah/digikey/</a></p>
-              <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu as augue, eu vulputate magna eros eu erat. Aliquam erat volutpat. Nam dui mi, tincidunt quis, accumsan porttitor, facilisis luctus, metus</p>
-            </li>
-            <li>
-              <h2><a href="#">Allied Electronics</a></h2>
-              <p><a href="#">http://www.somewhere.com/blahblahblah/digikey/</a></p>
-              <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo. Quisque sit amet est et sapien ullamcorper pharetra tincidunt quis, accumsan porttitor, facilisis luctus, metus</p>
-            </li>    
-            <li>
-              <h2><a href="#">Mouser Electronics</a></h2>
-              <p><a href="#">http://www.somewhere.com/blahblahblah/digikey/</a></p>
-              <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu as augue, eu vulputate magna eros eu erat. Aliquam erat volutpat. Nam dui mi, tincidunt quis, accumsan porttitor, facilisis luctus, metus</p>
-            </li>
-            <li>
-              <h2><a href="#">Allied Electronics</a></h2>
-              <p><a href="#">http://www.somewhere.com/blahblahblah/digikey/</a></p>
-              <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo. Quisque sit amet est et sapien ullamcorper pharetra tincidunt quis, accumsan porttitor, facilisis luctus, metus</p>
-            </li>                      
+            </li>-->
+            <li v-for="page in wikiPagesValues " >
+              <h2><a :href=" 'https://en.wikipedia.org/?curid=' + page.pageid " target="result">{{ page.title  }}</a></h2>
+              <p><a :href=" 'https://en.wikipedia.org/?curid=' + page.pageid " target="result">https://en.wikipedia.org/?curid={{ page.pageid }}</a></p>
+              <p>
+                <div class="wikithumbnail" v-if="page.thumbnail" ><img :src="(page.thumbnail.source).replace(page.thumbnail.width,'150')"  v-if="page.thumbnail"></div>
+                {{ page.extract }}
+              </p>
+            </li>                  
           </ul>
       </div>
 
@@ -78,14 +69,16 @@
 
         data: {
           wikiKeyword: '',
-          wikiResponse: ''
+          wikiResponse: '',
+          wikiPages: '',
+          wikiPagesValues: ''
         }
       })
 
       // NOTE: This is a sample call to the Wikipedia API 
       // https://en.wikipedia.org/w/api.php?format=json&action=query&generator=search&gsrlimit=100&prop=pageimages|extracts&pilimit=max&exintro&explaintext&exsentences=1&exlimit=max&gsrsearch=bill+clinton
 
-      // Setup click handlers
+      // Setup click handler on homepage
       $('#wikiSearch').click(function(){
         $.ajax({
           method: "GET",
@@ -96,18 +89,25 @@
                   generator: "search",
                   gsrlimit: "100",
                   prop: "pageimages|extracts",
-                  pilimit: "max",
-                  exintro: "",
-                  explaintext: "",
-                  exsentences: "2",
+                  pilimit: "20",
+                  exintro: "5",
+                  explaintext: "4",
+                  exsentences: "4",
                   exlimit: "max",
                   origin: '*',                 // CORS
                   gsrsearch: app.wikiKeyword   // search term (coming from Vue instance)
                 }
         })
         .done(function( response ) {
-          // alert( "Data Saved: " + response );
           app.wikiResponse = response;
+          app.wikiPages = Object.keys(response.query.pages);          // this will contain an array of page ids
+          app.wikiPagesValues = Object.values(response.query.pages);  // this will contain an array of objects, the values of each search result
+
+          // show results, hide initial homepage
+          $('#form').addClass('hide');
+          $('#identity').addClass('show');
+          $('#results').addClass('show');
+          
         });
       })
 
@@ -118,6 +118,24 @@
 
       // capture ENTER key on input field, and generate click event for wikiSearch button
       $("#wikiKeyword").keyup(function(event){
+          if(event.keyCode == 13){
+              $("#wikiSearch").click();   // trigger the click event, same as clicking the button
+              event.preventDefault();
+              return false;   // to prevent the form from being submitted
+          }
+      });
+
+
+
+
+      // --------------------- query box for Search Results Page ---------------------
+      // disable form ENTER key for the input text box
+      $("#results").submit(function(event){
+        event.preventDefault();
+      })
+
+      // capture ENTER key on input field, and generate click event for wikiSearch button
+      $("#resultswikiKeyword").keyup(function(event){
           if(event.keyCode == 13){
               $("#wikiSearch").click();   // trigger the click event, same as clicking the button
               event.preventDefault();
