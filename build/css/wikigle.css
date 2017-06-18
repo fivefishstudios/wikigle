@@ -1,0 +1,101 @@
+#wikigle {
+  height: 100%;
+  width: 100%;
+}
+#wikigle #identity {
+  padding: 20px;
+  background-color: #FAFAFA;
+  position: fixed;
+  top: 0px;
+  z-index: 200;
+  width: 100%;
+}
+#wikigle #identity #wikigle-logo {
+  height: 42px;
+  width: 150px;
+  margin-left: 0px;
+  transition: 0.5s all ease;
+}
+#wikigle #identity hr {
+  margin-bottom: -21px;
+  margin-top: 20px;
+}
+#wikigle #form {
+  width: 50%;
+  min-width: 300px;
+  max-width: 700px;
+  margin-top: 15%;
+  margin-left: auto;
+  margin-right: auto;
+}
+#wikigle #wikigle-logo {
+  height: 120px;
+  margin: auto;
+  width: 300px;
+}
+#wikigle form input {
+  color: #666;
+  font-size: 1.2em;
+  padding: 10px;
+  width: 100%;
+  box-shadow: 2px 2px 3px rgba(120, 120, 120, 0.3);
+  border: 1px solid #EEE;
+}
+#wikigle form input::placeholder {
+  color: #CCC;
+}
+#wikigle form input:focus {
+  border: 1px solid #EEE;
+  outline: none !important;
+}
+#wikigle #wikigle-buttons {
+  margin-top: 1.5em;
+  text-align: center;
+}
+#wikigle #wikigle-buttons .btn {
+  background-color: #F6F6F6;
+  border-color: #F6F6F6;
+  margin-left: 10px;
+  margin-right: 10px;
+  margin-bottom: 1em;
+  color: #888;
+  font-weight: bold;
+}
+#wikigle #wikigle-buttons .btn:hover {
+  color: #222;
+}
+#wikigle #results {
+  margin-top: 60px;
+  padding: 50px;
+  font-size: 1.1em;
+  color: #555;
+}
+#wikigle #results ul {
+  margin: 0px;
+  padding: 0px;
+  list-style-type: none;
+  list-style: none;
+}
+#wikigle #results ul li {
+  margin-bottom: 1.5em;
+}
+#wikigle #results p {
+  margin: 0px;
+  padding: 0px;
+  color: #666;
+}
+#wikigle #results h1,
+#wikigle #results h2 {
+  margin: 0px;
+  padding: 0px;
+  font-size: 1.3em;
+}
+#wikigle #results h2 a {
+  color: #1744e8;
+  font-weight: bold;
+}
+#wikigle #results a {
+  color: green;
+  font-size: 0.85em;
+}
+/*# sourceMappingURL=wikigle.css.map */
